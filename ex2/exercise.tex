@@ -1,0 +1,124 @@
+\documentclass[]{book}
+
+%These tell TeX which packages to use.
+\usepackage{array,epsfig}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsxtra}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{color}
+
+%Here I define some theorem styles and shortcut commands for symbols I use often
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}{Corollary}
+\newtheorem*{rmk}{Remark}
+\newtheorem{lem}{Lemma}
+\newtheorem*{joke}{Joke}
+\newtheorem{ex}{Example}
+\newtheorem*{soln}{Solution}
+\newtheorem{prop}{Proposition}
+
+\newcommand{\lra}{\longrightarrow}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\surj}{\twoheadrightarrow}
+\newcommand{\graph}{\mathrm{graph}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\Z}{\bb{Z}}
+\newcommand{\Q}{\bb{Q}}
+\newcommand{\R}{\bb{R}}
+\newcommand{\C}{\bb{C}}
+\newcommand{\N}{\bb{N}}
+\newcommand{\M}{\mathbf{M}}
+\newcommand{\m}{\mathbf{m}}
+\newcommand{\MM}{\mathscr{M}}
+\newcommand{\HH}{\mathscr{H}}
+\newcommand{\Om}{\Omega}
+\newcommand{\Ho}{\in\HH(\Om)}
+\newcommand{\bd}{\partial}
+\newcommand{\del}{\partial}
+\newcommand{\bardel}{\overline\partial}
+\newcommand{\textdf}[1]{\textbf{\textsf{#1}}\index{#1}}
+\newcommand{\img}{\mathrm{img}}
+\newcommand{\ip}[2]{\left\langle{#1},{#2}\right\rangle}
+\newcommand{\inter}[1]{\mathrm{int}{#1}}
+\newcommand{\exter}[1]{\mathrm{ext}{#1}}
+\newcommand{\cl}[1]{\mathrm{cl}{#1}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\vol}{\mathrm{vol}}
+\newcommand{\cnt}{\mathrm{ct}}
+\newcommand{\osc}{\mathrm{osc}}
+\newcommand{\LL}{\mathbf{L}}
+\newcommand{\UU}{\mathbf{U}}
+\newcommand{\support}{\mathrm{support}}
+\newcommand{\AND}{\;\wedge\;}
+\newcommand{\OR}{\;\vee\;}
+\newcommand{\Oset}{\varnothing}
+\newcommand{\st}{\ni}
+\newcommand{\wh}{\widehat}
+
+%Pagination stuff.
+\setlength{\topmargin}{-.3 in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textheight}{9.in}
+\setlength{\textwidth}{6.5in}
+\pagestyle{empty}
+
+
+
+\begin{document}
+
+
+\begin{center}
+{\Large Finite Difference and Finite Volume Methods \\
+\vspace{1mm} Assignment 2}\\
+\textbf{Mainak Mandal}\\ %You should put your name here
+Due: \today %You should write the date here.
+\end{center}
+
+\vspace{0.2 cm}
+
+\begin{align*}
+u_{00}&=g_{00}\\
+&\cdots\\
+u_{n0}&=g_{n0}\\
+%
+%2nd column
+%
+u_{01}&=g_{01}\\
+u_{11}&=\frac{u_{01}+u_{10}-4u_{11}+u_{21}+u_{12}}{h^2}\\
+&\cdots\\
+u_{n-1,1}&=\frac{u_{n-2,1}+u_{n-1,0}-4u_{n-1,1}+u_{n,1}+u_{n-1,2}}{h^2}\\
+u_{n1}&=g_{n1}\\
+u_{02}&=g_{02}\\
+u_{12}&=\frac{u_{02}+u_{11}-4u_{12}+u_{13}+u_{22}}{h^2}\\
+&\cdots\\
+u_{n2}&=g_{n2}\\
+u_{03}&=g_{03}\\
+&\cdots\\
+u_{n,n-2}&=g_{n,n-2}\\
+%
+%n-1th column
+%
+u_{0,n-1}&=g_{0,n-1}\\
+u_{1,n-1}&=\frac{u_{0,n-1}+u_{1,n-2}-4u_{1,n-1}+u_{2,n-1}+u_{1,n}}{h^2}\\
+&\cdots\\
+u_{n-1,n-1}&=\frac{u_{n-2,n-1}+u_{n-1,n-2}-4u_{n-1,n-1}+u_{n,n-1}+u_{n-1,n}}{h^2}\\
+u_{n,n-1}&=g_{n,n-1}\\
+%
+%nth column
+%
+u_{0n}&=g_{0n}\\
+\cdots\\
+u_{nn}&=g_{nn}
+\end{align*}
+
+
+
+\end{document}
+
+
